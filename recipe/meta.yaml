@@ -1,5 +1,5 @@
 {% set name = "kanban-python" %}
-{% set version = "0.3.9" %}
+{% set version = "0.3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/kanban-python-{{ version }}.tar.gz
-  sha256: 68d1c92b56d4b027cabbcedd46d7b3ce6375124ff36abe026df91bb1ddbe18e8
+  sha256: 3be23c77f7dc5b761fbec339f657b07800ab88a1de6ddd12b061c10f8b5b9783
 
 build:
   noarch: python
