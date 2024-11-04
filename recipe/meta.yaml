@@ -1,13 +1,13 @@
 {% set name = "kanban-python" %}
-{% set version = "0.4.1" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: c3113f329d6dcffcfb829ec300bb416c5446b2b3220bf87437a21e6a8c5ddf92
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: f69596b42f9c196139aea0c96753851245d87864f95a13625f44abe06c54749f
 
 build:
   noarch: python
@@ -18,16 +18,14 @@ build:
 
 requirements:
   host:
-    - python >=3.7
-    - setuptools >=46.1.0
-    - setuptools-scm >=5
+    - python >=3.9
+    - hatchling
     - pip
   run:
-    - python >=3.7
-    - importlib-metadata
-    - rich >=13.7.0
-    - platformdirs >=3,<4
-
+    - python >=3.9
+    - platformdirs >=4.3.6
+    - rich >=13.9.4
+    
 test:
   imports:
     - kanban_python
