@@ -14,15 +14,15 @@ build:
   entry_points:
     - kanban = kanban_python.app:run
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - hatchling
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - platformdirs >=4.3.6
     - rich >=13.9.4
     
@@ -34,6 +34,7 @@ test:
     - kanban --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Zaloog/kanban-python
