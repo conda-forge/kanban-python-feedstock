@@ -1,5 +1,5 @@
 {% set name = "kanban-python" %}
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: f69596b42f9c196139aea0c96753851245d87864f95a13625f44abe06c54749f
+  sha256: 66f7b63a8678c29becc0f911a9d5d803757d92b11df3b3d58efc8cbbe0bfe678
 
 build:
   noarch: python
   entry_points:
     - kanban = kanban_python.app:run
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -25,7 +25,7 @@ requirements:
     - python >={{ python_min }}
     - platformdirs >=4.3.6
     - rich >=13.9.4
-    
+
 test:
   imports:
     - kanban_python
