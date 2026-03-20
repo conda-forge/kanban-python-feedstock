@@ -1,0 +1,55 @@
+schema_version: 1
+
+context:
+  name: kanban-python
+  version: "0.6.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 28907c55c16e6ac7fbd48c58abd4beaa2b5d97c0085b0e2a9f17addcd781325d
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - kanban = kanban_python.app:run
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - platformdirs >=4.3.6
+    - rich >=13.9.4
+
+tests:
+  - python:
+      imports:
+        - kanban_python
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - kanban --help
+
+about:
+  summary: Terminal Kanban App written in Python
+  license: MIT
+  license_file: LICENSE.txt
+  homepage: https://github.com/Zaloog/kanban-python
+
+extra:
+  recipe-maintainers:
+    - thewchan
