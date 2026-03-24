@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: kanban-python
-  version: "0.6.1"
+  version: "0.6.2"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: 28907c55c16e6ac7fbd48c58abd4beaa2b5d97c0085b0e2a9f17addcd781325d
+  sha256: cd529433d66db639dc33d740531b847b65e469b61c198a5753852943106de477
 
 build:
   number: 0
